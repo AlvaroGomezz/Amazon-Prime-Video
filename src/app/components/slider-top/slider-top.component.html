@@ -1,0 +1,46 @@
+<div class="content">
+    <button 
+        (click)="disminuirNumero()"
+        *ngIf="numero >= 1"
+        class="content__button prev">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="content__svg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          </svg>
+    </button>
+    <button 
+        (click)="aumentarNumero()"
+        *ngIf="numero < resultado - 1"
+        class="content__button next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="content__svg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+    </button>
+    <div class="content2">
+        <div 
+            *ngIf="slider.length >= 1"
+            [ngStyle]="{
+                width               : ancho(),
+                gridTemplateColumns : grid(),
+                transform           : translateX()
+            }"
+            class="content2__slider">
+            <app-slider-top-card
+                *ngFor="let slides of slider; let i = index"
+                [pelicula]="slides">
+            </app-slider-top-card>
+        </div>
+        <a class="content2__responsive-img">
+            <img src="https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/05f055accfde1dbadebbf53ca257188c9180f2d88d6dcbaebe7d3921adbb90ff._RI_V_TTW_SX712_FMwebp_.jpg" alt="Aguas Profundas">
+        </a>
+        <ul class="content2__ul">
+            <li 
+                *ngFor="let slides of slider; let i = index" 
+                (click)="setSlide(i)"
+                class="content2__li">
+                <button
+                    [ngClass]="{'activo' : numero === i}"
+                    class="content2__btn"></button>
+            </li>
+        </ul>
+    </div>
+</div>

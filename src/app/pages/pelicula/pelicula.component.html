@@ -1,0 +1,292 @@
+<div class="pelicula">
+    <div class="pelicula__wrapper">
+        <div class="pelicula__content">
+            <img *ngIf="pelicula.amazonOriginal"
+                src="https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/7e5ebe135ef7e9f912cf8c29b6c9f4e22cab8ff78c0584a45c129cc1df33336e._V_SX600_FMpng_.png"
+                alt="Amazon Original" class="pelicula__original">
+            <h1 *ngIf="pelicula.titulo && !pelicula.srcTitle" class="pelicula__h1">{{pelicula.titulo}}</h1>
+            <div *ngIf="pelicula.srcTitle" class="pelicula__image">
+                <img [src]="pelicula.srcTitle" [alt]="pelicula.title" class="pelicula__img">
+            </div>
+            <div *ngIf="pelicula.top10" class="pelicula__top">
+                <span class="pelicula__top10">TOP 10</span>
+                <span class="pelicula__top-numero">{{pelicula.topNumber}}</span>
+            </div>
+            <div class="pelicula__data">
+                <span *ngIf="pelicula.unaTemporada" class="pelicula__dato">Temporada 1</span>
+                <div *ngIf="pelicula.numTemporada" class="pelicula__dato temporada">
+                    <span class="pelicula__numero-temporada">{{pelicula.numTemporada}}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="pelicula__temporada-svg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </div>
+                <div class="pelicula__datos">
+                    <div *ngIf="pelicula.imdb" class="pelicula__dato imdb">
+                        <svg class="pelicula__svgimdb" viewBox="0 0 33 16" height="16" width="33" role="img"
+                            style="height:16;width:33" aria-hidden="true">
+                            <title>Logo Imdb Outline</title><svg xmlns="http://www.w3.org/2000/svg" width="33" height="16">
+                                <title>Logo Imdb Outline</title>
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M29.652719 1.0977341c.772758 0 1.396822.618987 1.396822 1.3842208V13.518051c0 .765681-.624064 1.384221-1.396822 1.384221H3.3468573c-.7721217 0-1.3965678-.61854-1.3965678-1.384221V2.4819549c0-.7652338.6244461-1.3842208 1.3965678-1.3842208zm0-.2977341H3.3468573C2.4112479.8 1.65 1.5544797 1.65 2.4819549V13.518051C1.65 14.44553 2.4112479 15.2 3.3468573 15.2H29.652719c.935822 0 1.697281-.75447 1.697281-1.681949V2.4819549C31.35 1.5544797 30.588541.8 29.652719.8">
+                                </path>
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M5.9317148 3.8610473v8.3986877h2.1976434V3.8610473H5.9317148m6.8886832 0-.509286 3.9246344-.312287-2.1332276c-.094387-.6837788-.180593-1.2824555-.266926-1.7914068H8.8811102v8.3986877h1.9266258l.0083-5.5445848.809278 5.5445848h1.37198l.772121-5.6666451.0042 5.6666451h1.92209V3.8610473h-2.875228m6.293065 8.3986877c.525819 0 .92022-.02858 1.183331-.08554.258321-.05682.480586-.154532.657089-.301228.176503-.14276.304105-.34196.373904-.594322.07376-.252529.114737-.756987.114737-1.5103496V6.820831c0-.7939403-.03292-1.3269684-.07786-1.5997796-.049309-.2687531-.172528-.517211-.369803-.7365515-.193015-.2203229-.480587-.3789146-.854491-.4763373-.373905-.0978426-.99002-.1471153-2.053784-.1471153h-1.639203v8.3986877zm.02077-6.884012c.08593.048988.143712.1263976.168596.2361392.02444.1058216.03688.3499397.03688.7287133v3.252332c0 .5621415-.03688.9041015-.111069 1.0304995-.07391.125978-.266799.186867-.583326.186867V5.2985972c.238248 0 .402308.024214.488917.077124m3.056013-1.5146587v8.3986745h1.980062l.139641-.533456c.17644.215833.373693.374428.591317.484593.218069.105683.538367.158594.788549.158594.345353 0 .649055-.08944.899702-.272683.254866-.178879.415344-.394866.481095-.639265.06982-.248166.102696-.622608.102696-1.123561V7.9773197c0-.5088167-.0085-.8388767-.03288-.9934102-.020971-.1546716-.090788-.3136849-.201475-.4767616-.115055-.1625009-.275067-.2886238-.489066-.3784902-.217771-.089447-.467931-.134372-.76006-.134372-.250182 0-.574868.049407-.792619.1511671-.213554.097434-.410807.2480424-.587246.4476398V3.8610643Zm2.863486 6.3632735c0 .402993-.02099.663486-.06198.769169-.04087.106244-.217772.158596-.353345.158596-.131184 0-.217771-.04843-.262708-.154113-.04084-.101899-.06575-.338048-.06575-.708568V8.0708145c0-.3829736.02035-.6191066.05761-.7168021.04103-.09351.127285-.1423599.254399-.1423599.135742 0 .316081.057235.36195.1629234.04494.109746.06982.3419696.06982.6962386v2.1535215">
+                                </path>
+                            </svg>
+                        </svg>
+                        <span *ngIf="pelicula.notaImdb" class="pelicula__nota">{{pelicula.notaImdb}}</span>
+                    </div>
+                    <span *ngIf="pelicula.duration" class="pelicula__dato duration">{{pelicula.duration}}</span>
+                    <span *ngIf="pelicula.year" class="pelicula__dato year">{{pelicula.year}}</span>
+                    <span *ngIf="pelicula.xRay" class="pelicula__dato xray">X-Ray</span>
+                    <span *ngIf="pelicula.hdr" class="pelicula__dato hdr">HDR</span>
+                    <span *ngIf="pelicula.uhd" class="pelicula__dato uhd">UHD</span>
+                    <svg *ngIf="pelicula.ad" class="pelicula__dato ad" xmlns="http://www.w3.org/2000/svg" width="44"
+                        height="30" viewBox="-5 -5 44 30" y="556">
+                        <g fill="none" fill-rule="evenodd">
+                            <g transform="translate(0 -8)">
+                                <rect stroke="#8197A4" fill-opacity=".3" fill="#111" x=".5" y="8.5" width="33" height="19"
+                                    rx="2" />
+                                <g fill="#8197A4">
+                                    <path
+                                        d="M21.22 22.792a.69.69 0 0 1-.003-1.007C21.28 21.72 22.5 20.627 22.5 18s-1.232-3.733-1.285-3.785a.694.694 0 0 1 .01-1.008.774.774 0 0 1 1.055.002c.07.067 1.72 1.673 1.72 4.79 0 3.118-1.65 4.725-1.72 4.792a.767.767 0 0 1-.53.21.767.767 0 0 1-.53-.21z" />
+                                    <path
+                                        d="M24.75 23.001a.767.767 0 0 1-.53-.21.69.69 0 0 1-.003-1.006C24.28 21.72 25.5 20.48 25.5 18c0-2.494-1.232-3.733-1.285-3.785a.694.694 0 0 1 .01-1.008.774.774 0 0 1 1.055.002c.07.067 1.72 1.673 1.72 4.79 0 3.118-1.65 4.725-1.72 4.792a.767.767 0 0 1-.53.21" />
+                                    <path
+                                        d="M27.75 23.001a.767.767 0 0 1-.53-.21.69.69 0 0 1-.003-1.006C27.28 21.72 28.5 20.48 28.5 18c0-2.494-1.232-3.733-1.285-3.785a.694.694 0 0 1 .01-1.008.774.774 0 0 1 1.055.002c.07.067 1.72 1.673 1.72 4.79 0 3.118-1.65 4.725-1.72 4.792a.767.767 0 0 1-.53.21" />
+                                </g>
+                            </g>
+                            <path
+                                d="M11.257 11.414l-1.814-.01 1.814-2.89v2.9zM4.411 14.57s6.063-8.69 6.316-9.079h2.638v9.08h-2.187l-.003-1.167-2.877.005-.833 1.161H4.41zm16.698-5.05c.173 1.988-.785 3.534-2.013 4.329-1.28.828-3.016.745-5.275.703V5.58c-.003-.05.034-.105.034-.105s2.148-.089 3.228 0c2.172.178 3.844 1.944 4.026 4.046zm-5.171 2.675c1.653.113 2.8-.916 2.603-2.499-.148-1.181-1.124-1.917-2.534-1.865-.043.015-.07.046-.07.106v4.258z"
+                                fill="#8197A4" />
+                        </g>
+                    </svg>
+                    <span class="pelicula__dato age">{{pelicula.age}}</span>
+                    <svg *ngIf="pelicula.subtitles" class="pelicula__dato subtitles" viewBox="0 0 20 22" height="22"
+                        width="20" role="img" aria-hidden="true" style="height: 30px;width: 28px;">
+                        <title>Subtitles</title><svg width="20" height="22" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd" vector-effect="non-scaling-stroke">
+                                <path
+                                    d="M3.5 20.793L5.793 18.5H18a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 18 4.5H2A1.5 1.5 0 0 0 .5 6v11A1.5 1.5 0 0 0 2 18.5h1.5v2.293z"
+                                    stroke="currentColor" fill-opacity=".1" fill-rule="nonzero"></path>
+                                <path d="M4 13.5h12m-10 2h8" stroke="currentColor" stroke-linecap="round"></path>
+                            </g>
+                        </svg>
+                        <title>Subtitles</title>
+                    </svg>
+                </div>
+            </div>
+            <div class="pelicula__description">
+                <p class="pelicula__p">{{pelicula.description}}</p>
+            </div>
+            <div class="pelicula__staff">
+                <div *ngFor="let datos of pelicula.data; let i = index" class="pelicula__staff-data">
+                    <span class="pelicula__title">{{datos.title}}</span>
+                    <a href="#" title="Data" class="pelicula__name">{{datos.name}}</a>
+                    <a href="#" title="Data" class="pelicula__name">{{datos.genero}}</a>
+                    <div class="pelicula__idioms">
+                        <span class="pelicula__idioms">{{datos.thing}}</span>
+                        <button class="pelicula__mas">{{datos.mas}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pelicula__buttons">
+                <button class="pelicula__btn ver">
+                    <svg class="ver__svg" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <title>Play Arrow</title>
+                        <path
+                            d="M4.576 2.452C3.71 1.953 3 2.364 3 3.364v17.272c0 1 .71 1.41 1.576.912l15.03-8.642c.867-.498.867-1.314 0-1.812L4.576 2.452z"
+                            fill="currentColor" fill-rule="evenodd"></path>
+                    </svg>
+                    <a href="#" title="Reproducir" class="pelicula__reproducir">{{pelicula.reproducirInside}}</a>
+                </button>
+                <button class="pelicula__list">
+                    <svg class="pelicula__svg-list" viewBox="0 0 24 24" height="24" width="24" role="img"
+                        style="height:24;width:24" aria-hidden="true">
+                        <title>Add</title><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <title>Add</title>
+                            <path d="M3 12h18m-9 9V3" stroke="currentColor" stroke-width="2" fill="none"
+                                stroke-linecap="round"></path>
+                        </svg>
+                    </svg>
+                </button>
+                <button class="pelicula__chat">
+                    <svg class="pelicula__svg-chat" viewBox="0 0 24 24" height="24" width="24" role="img"
+                        style="height:24;width:24" aria-hidden="true">
+                        <title>Watch Party</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>Watch Party</title>
+                            <g fill="none" fill-rule="evenodd" transform="rotate(45 13.621 11.293)">
+                                <polygon stroke="currentColor" stroke-linejoin="round" stroke-width="2"
+                                    points="7.362 15.985 12.862 27.985 18.362 15.985"></polygon>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8.20520683,12.8786797 C7.9841616,11.0305625 7.19297531,10.0986243 6.20520683,9.87867966">
+                                </path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M20.8890873,12.6109127 C20.4469968,9.53071743 18.8646243,7.97748706 16.8890873,7.6109127"
+                                    transform="matrix(-1 0 0 1 37.778 0)"></path>
+                                <circle cx="3.316" cy="7.49" r="1" fill="currentColor"></circle>
+                                <circle cx="20.657" cy="11.879" r="1" fill="currentColor"></circle>
+                                <circle cx="3.316" cy="11.732" r="1" fill="currentColor"></circle>
+                                <circle cx="1.195" cy="9.611" r="1" fill="currentColor"></circle>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                    d="M12.557293,13.0753788 C14.5891901,10.5746233 14.5891901,4.94159902 11.0953579,4.94159902 C8.22476933,4.94159902 8.63047547,8.5284102 10.8269766,8.5284102 C13.5809029,8.5284102 16.0116573,2.4313965 11.751917,0.0753787975">
+                                </path>
+                            </g>
+                        </svg>
+                    </svg>
+                </button>
+            </div>
+            <div class="pelicula__bottom">
+                <span class="pelicula__terminos">Al hacer clic en reproducir, aceptas nuestros <a
+                        href="https://www.primevideo.com/dv/tou/ref=atv_dp_terms" title="Términos de uso"
+                        class="pelicula__link-terminos">Términos de uso</a></span>
+                <ul class="pelicula__interact">
+                    <li class="pelicula__li">
+                        <svg class="_22qEau" viewBox="0 0 24 24" height="24" width="24" role="img"
+                            style="height:24px;width:24px" aria-hidden="true">
+                            <title>Share</title><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Share</title>
+                                <path
+                                    d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-3-4l-7-3m7-7l-7 3"
+                                    stroke="currentColor" stroke-width="2" fill="none"></path>
+                            </svg>
+                        </svg>
+                        <button class="pelicula__button">Compartir</button>
+                    </li>
+                    <li class="pelicula__li">
+                        <svg class="_22qEau" viewBox="0 0 24 24" height="24" width="24" role="img"
+                            style="height:24px;width:24px" aria-hidden="true">
+                            <title>Edit</title><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Edit</title>
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.87 3L3 17v4h4L22 7.09z">
+                                    </path>
+                                    <path d="M15 7l3 3"></path>
+                                </g>
+                            </svg>
+                        </svg>
+                        <button class="pelicula__button">Comentarios</button>
+                    </li>
+                    <li class="pelicula__li">
+                        <svg class="_22qEau" viewBox="0 0 24 24" height="24" width="24" role="img"
+                            style="height:24px;width:24px" aria-hidden="true">
+                            <title>Help</title><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Help</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <path
+                                        d="M11 18v-2h2v2h-2zm1-12c3.401 0 4 1.757 4 2.925 0 1.47-.627 1.88-1.4 2.38-.774.485-1.438 1.061-1.6 1.954l-.072.741H11v-.846c.108-1.32.681-1.716 1.4-2.186.703-.469 1.6-1.013 1.6-1.83 0-.925-1.046-1.454-2-1.454-1.296 0-1.982 1.03-2 2.105H8C8.054 7.623 9.372 6 12 6z"
+                                        fill="currentColor"></path>
+                                    <circle stroke="currentColor" stroke-width="2" cx="12" cy="12" r="9"></circle>
+                                </g>
+                            </svg>
+                        </svg>
+                        <button class="pelicula__button">Obtener ayuda</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pelicula__media">
+            <div class="pelicula__media-content">
+                <video *ngIf="pelicula.srcVideo" [src]="pelicula.srcVideo" class="pelicula__video" autoplay loop
+                    [muted]=" !videoSound ">
+                </video>
+                <img *ngIf="pelicula.imagen" [src]="pelicula.imagen" [alt]="pelicula.titulo" class="pelicula__cover">
+                <div *ngIf="pelicula.srcVideo" class="pelicula__sombra"></div>
+                <div *ngIf="pelicula.imagen" class="pelicula__sombra2"></div>
+                <div class="pelicula__sombra3"></div>
+            </div>
+            <div *ngIf="pelicula.srcVideo" class="pelicula__audio">
+                <button 
+                    (click)=" desactivarVideoSound() "
+                    class="pelicula__mute"
+                    [ngClass]=" { 'activo' : videoSound } ">
+                    <svg width="40px" height="40px" viewBox="0 0 40 40" aria-hidden="true"><g id="icon/sound-on" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" fill="#0F171E" opacity="0.7" cx="20" cy="20" r="20"></circle><g id="icon/unmuted" transform="translate(8.000000, 8.000000)" fill="#FFFFFF"><path d="M4.5488,9 C4.2458,9 3.9998,9.247 3.9998,9.549 L3.9998,14.451 C3.9998,14.754 4.2458,15 4.5488,15 L7.9998,15 C8.1838,15 8.3628,15.051 8.5208,15.146 L14.9998,19.095 L14.9998,4.703 L8.5388,8.842 C8.3788,8.945 8.1918,9 7.9998,9 L4.5488,9 Z M15.9998,21.875 C15.8198,21.875 15.6398,21.826 15.4798,21.729 L7.7198,17 L4.5488,17 C3.1438,17 1.9998,15.856 1.9998,14.451 L1.9998,9.549 C1.9998,8.144 3.1438,7 4.5488,7 L7.7068,7 L15.4608,2.033 C15.7708,1.835 16.1598,1.823 16.4798,1.998 C16.8008,2.173 16.9998,2.509 16.9998,2.875 L16.9998,20.875 C16.9998,21.236 16.8048,21.57 16.4888,21.747 C16.3378,21.832 16.1688,21.875 15.9998,21.875 L15.9998,21.875 Z" id="Fill-1"></path><path d="M19,19 C18.744,19 18.488,18.902 18.293,18.707 C17.903,18.318 17.902,17.688 18.289,17.297 C18.375,17.207 20,15.472 20,12 C20,8.509 18.357,6.774 18.287,6.702 C17.905,6.307 17.91,5.676 18.301,5.29 C18.695,4.903 19.32,4.906 19.707,5.293 C19.801,5.387 22,7.636 22,12 C22,16.364 19.801,18.613 19.707,18.707 C19.512,18.902 19.256,19 19,19" id="Fill-3"></path></g></g></svg>
+                </button>
+                <button 
+                    (click)=" activarVideoSound() " 
+                    class="pelicula__mute"
+                    [ngClass]=" { 'activo' : !videoSound } ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 40 40" version="1.1" id="svg2" aria-hidden="true"><defs id="defs11"><mask maskUnits="userSpaceOnUse" id="mask4258"><g id="g4260"><rect y="0" x="2" height="24" width="22" style="fill: rgb(255, 255, 255);"></rect><path d="m 21.5,2 -16,20" style="stroke: rgb(0, 0, 0); stroke-width: 2;"></path></g></mask></defs><circle r="20" cy="20" cx="20" id="Oval" style="opacity: 0.7; fill: rgb(15, 23, 30);"></circle><g transform="translate(8,8)" id="icon/unmuted" mask="url(#mask4258)" style="fill: rgb(255, 255, 255);"><path id="Fill-1" d="m 4.5488,9 c -0.303,0 -0.549,0.247 -0.549,0.549 l 0,4.902 c 0,0.303 0.246,0.549 0.549,0.549 l 3.451,0 c 0.184,0 0.363,0.051 0.521,0.146 l 6.479,3.949 0,-14.392 -6.461,4.139 C 8.3788,8.945 8.1918,9 7.9998,9 l -3.451,0 z m 11.451,12.875 c -0.18,0 -0.36,-0.049 -0.52,-0.146 L 7.7198,17 4.5488,17 c -1.405,0 -2.549,-1.144 -2.549,-2.549 l 0,-4.902 C 1.9998,8.144 3.1438,7 4.5488,7 l 3.158,0 7.754,-4.967 c 0.31,-0.198 0.699,-0.21 1.019,-0.035 0.321,0.175 0.52,0.511 0.52,0.877 l 0,18 c 0,0.361 -0.195,0.695 -0.511,0.872 -0.151,0.085 -0.32,0.128 -0.489,0.128 l 0,0 z"></path><path id="Fill-3" d="m 19,19 c -0.256,0 -0.512,-0.098 -0.707,-0.293 -0.39,-0.389 -0.391,-1.019 -0.004,-1.41 C 18.375,17.207 20,15.472 20,12 20,8.509 18.357,6.774 18.287,6.702 17.905,6.307 17.91,5.676 18.301,5.29 18.695,4.903 19.32,4.906 19.707,5.293 19.801,5.387 22,7.636 22,12 22,16.364 19.801,18.613 19.707,18.707 19.512,18.902 19.256,19 19,19"></path></g><path d="M 27,10 11,30" style="stroke: rgb(255, 255, 255); stroke-width: 2; stroke-linecap: round;"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="pelicula__wrapper bottom">
+        <div *ngIf="pelicula.numTemporada || pelicula.unaTemporada" class="pelicula__serie">
+            <div class="pelicula__opciones">
+                <span class="pelicula__opcion">Episodios</span>
+                <span class="pelicula__opcion">Relacionado</span>
+                <span class="pelicula__opcion">Detalles</span>
+            </div>
+            <div class="pelicula__info">
+                <span class="pelicula__numep">Episodios ({{pelicula.numEpisodios}})</span>
+                <span class="pelicula__ordenar">Ordenar por</span>
+            </div>
+            <div class="pelicula__epis">
+                <ul class="pelicula__episodios">
+                    <li *ngFor="let episodio of pelicula.episodios" class="pelicula__episodio">
+                        <img [src]="episodio.img" alt="Imagen" class="pelicula__episodio-img">
+                        <div class="pelicula__episodio-content">
+                            <div class="pelicula__episodio-num">
+                                <div class="pelicula__episodio-numero">
+                                    <svg class="pelicula__episodio-play" xmlns="http://www.w3.org/2000/svg" width="52"
+                                        height="52" preserveAspectRatio="none slice" viewBox="-5 -5 82 82"
+                                        id="play-button-arrow" y="1619">
+                                        <path
+                                            d="M36 0c19.883 0 36 16.117 36 36S55.883 72 36 72 0 55.883 0 36 16.117 0 36 0z"
+                                            fill="none" />
+                                        <path
+                                            d="M30.79 45.776c-.989.502-1.79.02-1.79-1.1V27.339c0-1.11.797-1.603 1.79-1.099l17.415 8.858c.989.503.993 1.316 0 1.821L30.79 45.776z"
+                                            fill="#FFF" opacity=".95" />
+                                    </svg>
+                                    <span class="pelicula__episodio-title">{{episodio.numEp}}. {{episodio.titulo}}</span>
+                                </div>
+                                <svg class="pelicula__episodio-download" height="24" width="24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <g fill-rule="nonzero" fill="none">
+                                        <path class="_3VjO1A" stroke="#F2F4F6" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" d="M2.997 18.087v4.972h18.03v-4.972"></path>
+                                        <path class="_3VjO1A" d="M12 5v12M7.5 12.5L12 17M16.5 12.5L12 17"
+                                            stroke="#F2F4F6" stroke-width="1.5" stroke-linecap="round"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="pelicula__episodio-info">
+                                <span class="pelicula__episodio-data">{{episodio.fecha}}</span>
+                                <span class="pelicula__episodio-data">{{episodio.duration}}</span>
+                                <span class="pelicula__episodio-data age">{{episodio.age}}</span>
+                                <span class="pelicula__episodio-data options">Subtítulos</span>
+                                <span class="pelicula__episodio-data options">Idiomas de audio</span>
+                            </div>
+                            <div class="pelicula__episodio-description">
+                                <p>{{episodio.description}}</p>
+                            </div>
+                            <span class="pelicula__episodio-grupal">Vídeo Grupal</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div *ngIf="pelicula.duration" class="pelicula__pelicula">
+            <div class="pelicula__opciones">
+                <span class="pelicula__opcion">Relacionado</span>
+                <span class="pelicula__opcion">Detalles</span>
+            </div>
+            <div class="pelicula__info">
+                <span class="pelicula__numep">Otros clientes también han visto</span>
+            </div>
+            <div class="pelicula__slider">
+                <app-slider-peliculas
+                    [media]="true"
+                    [prime]="false"
+                    [slider]="otrosClientes"
+                ></app-slider-peliculas>
+            </div>
+        </div>
+    </div>
+</div>

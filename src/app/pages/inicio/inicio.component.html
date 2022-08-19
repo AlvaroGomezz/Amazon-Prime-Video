@@ -1,0 +1,12 @@
+<app-slider-top
+    [slider]="sliderTop"
+></app-slider-top>
+
+<div class="slider">
+    <app-slider-peliculas
+        *ngFor="let slides of sliderPeliculas; let i = index"
+        [prime]="slides.prime"
+        [title]="slides.title"
+        [slider]="slides.slides"
+    ></app-slider-peliculas>
+</div>

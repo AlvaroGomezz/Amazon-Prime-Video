@@ -1,0 +1,85 @@
+@import 'mixins';
+
+.content{
+    width: 100%;
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-top: 5rem;
+    @media screen and (max-width: 1020px) {
+        padding-top: 4.5rem;
+    }
+    @media screen and (max-width: 750px) {
+        padding-top: 3.5rem;
+    }
+    &__button{
+        height: 100%;
+        position: absolute;
+        cursor: pointer;
+        z-index: 2;
+        padding-top: 5rem;
+        @media screen and (max-width: 500px) {
+            display: none;
+        }
+        &.prev{
+            top: 0;
+            left: 0;
+        }
+        &.next{
+            top: 0;
+            right: 0;
+        }
+    }
+    &__svg{
+        height: 2rem;
+    }
+}
+.content2{
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    overflow: hidden;
+    &__slider{
+        margin: 1rem 0 0;
+        transition: all .5s ease;
+        display: grid;
+        margin: auto;
+        @media screen and (max-width: 460px) {
+            display: none;  
+        }
+    }
+    &__responsive-img{
+        display: none;
+        @media screen and (max-width: 460px) {
+            display: block;  
+        }
+    }
+    &__ul{
+        @include flex (row, nowrap, center, center);
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @media screen and (max-width: 460px) {
+            display: none; 
+        }
+    }
+    &__btn{
+        width: .8125rem;
+        height: .8125rem;
+        margin-right: 7px;
+        background-color: hsla(0,0%,100%,.3);
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px rgb(0 0 0 / 40%);
+        display: block;
+        overflow: hidden;
+        transition: height .3s ease;
+        cursor: pointer;
+        &.activo{
+            background-color: hsla(0,0%,100%,.9);
+        }
+        @media screen and (max-width: 500px) {
+            width: .625rem;
+            height: .625rem;
+        }
+    }
+}

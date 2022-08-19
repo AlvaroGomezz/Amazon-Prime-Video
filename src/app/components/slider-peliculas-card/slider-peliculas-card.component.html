@@ -1,0 +1,53 @@
+<a 
+    (click)="navegar( pelicula.href )"
+    [title]="pelicula.title"
+    (mouseover)="setActivo()"
+    (mouseout)="setActivo()"
+    [ngClass]="{ 'activo' : activo }" 
+    class="card">
+    <div class="card__image">
+        <img [src]="pelicula.src" [alt]="pelicula.title" class="card__img">
+        <img *ngIf="pelicula.srcPrime" [src]="pelicula.srcPrime" alt="Prime" class="card__prime">
+    </div>
+    <div
+        [ngClass]=" { 'activo' : activo }" 
+        class="card__hover">
+        <div class="card__media">
+            <img *ngIf="pelicula.src" [src]="pelicula.src" [alt]="pelicula.title" class="card__img">
+            <video *ngIf="pelicula.srcVideo" autoplay loop [muted]="true" [src]="pelicula.srcVideo" class="card__video"></video>
+        </div>
+        <img *ngIf="pelicula.srcPrime" [src]="pelicula.srcPrime" alt="Prime" class="card__prime">
+        <div 
+        [ngClass]="{ 'activo' : true }" 
+        class="card__content">
+        <div class="card__buttons">
+            <div class="card__reproducir">
+                <div class="card__play">
+                    <svg class="card__svg" viewBox="0 0 36 36"><circle class="_2Xe6n0" cx="18" cy="18" r="17"></circle><path class="P_rpQi" d="M14.6821364,10.8388295 C14.0320227,10.4648523 13.4998636,10.7726932 13.4998636,11.5226932 L13.4998636,24.4772386 C13.4998636,25.2272386 14.0320227,25.5350795 14.6821364,25.1611023 L25.9542955,18.6797386 C26.6044091,18.3057614 26.6044091,17.6941705 25.9542955,17.3201932 L14.6821364,10.8388295 Z"></path></svg>
+                </div>
+                <span class="card__span">{{pelicula.reproducir}}</span>
+            </div>
+            <div class="card__btns">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="card__svg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20px" width="20px" class="card__svg"><defs></defs><path fill="currentColor" fill-rule="evenodd" d="M12,20 C10.152,20 8.455,19.367 7.1,18.314 L18.314,7.1 C19.367,8.455 20,10.152 20,12 C20,16.418 16.418,20 12,20 M4,12 C4,7.582 7.582,4 12,4 C13.848,4 15.545,4.633 16.9,5.686 L5.686,16.9 C4.633,15.545 4,13.848 4,12 M12,2 C6.477,2 2,6.477 2,12 C2,17.523 6.477,22 12,22 C17.523,22 22,17.523 22,12 C22,6.477 17.523,2 12,2" transform="translate(-2 -2)"></path></svg>
+
+            </div>
+        </div>
+        <h3 *ngIf="pelicula.prime" class="card__incluye">Se incluye con prime</h3>
+        <h3 class="card__titulo">{{pelicula.title}}</h3>
+        <p class="card__description">{{pelicula.description}}</p>
+        <div class="card__info">
+            <span *ngIf="pelicula.duration" class="card__duration">{{pelicula.duration}}</span>
+            <span class="card__year">{{pelicula.year}}</span>
+            <svg 
+                *ngIf="pelicula.subtitles"
+                class="card__subtitles" viewBox="0 0 20 22" height="22" width="20" role="img" aria-hidden="true" style="height: 22px;width: 20px;"><title>Subtitles</title><svg width="20" height="22" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" vector-effect="non-scaling-stroke"><path d="M3.5 20.793L5.793 18.5H18a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 18 4.5H2A1.5 1.5 0 0 0 .5 6v11A1.5 1.5 0 0 0 2 18.5h1.5v2.293z" stroke="currentColor" fill-opacity=".1" fill-rule="nonzero"></path><path d="M4 13.5h12m-10 2h8" stroke="currentColor" stroke-linecap="round"></path></g></svg><title>Subtitles</title></svg>
+            <span class="card__age">
+                <span class="card__age2">{{pelicula.age}}</span>
+            </span>
+        </div>
+    </div>
+    </div>   
+</a>

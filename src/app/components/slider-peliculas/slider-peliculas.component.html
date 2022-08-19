@@ -1,0 +1,41 @@
+<div 
+    [ngStyle]="{ marginBottom : margin() }"
+    class="slider">
+    <div class="slider__text">
+        <img *ngIf="prime" src="https://m.media-amazon.com/images/G/01/digital/video/global/prime-logo-large-v4.png" alt="Prime" class="slider__prime">
+        <h2 class="slider__h2">{{title}}</h2>
+    </div>
+    <ul 
+        [ngStyle]="{
+            width               : ancho(),
+            gridTemplateColumns : grid(),
+            transform           : translateX()
+        }"
+        class="slider__ul">
+        <li 
+            *ngFor="let slides of slider; let i = index" 
+            [ngStyle]="{ width : anchoLi()}"
+            class="slider__li">
+            <app-slider-peliculas-card
+                [pelicula]="slides"    
+            ></app-slider-peliculas-card>
+        </li>
+    </ul>
+    <button 
+        (click)="disminuirNumero()"
+        *ngIf="numero >= 1"
+        class="slider__button prev">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="slider__svg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          </svg>
+    </button>
+    <button 
+        (click)="aumentarNumero()"
+        *ngIf="numero < resultado - 1 "
+        class="slider__button next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="slider__svg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+    </button>
+    
+</div>

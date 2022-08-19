@@ -1,0 +1,65 @@
+@import 'mixins';
+
+.buscador{
+    margin-right: 1rem;
+    &__form{
+        @include flex (row, nowrap, flex-start, center);
+        padding: .5rem;
+        &.activo{
+            background: rgba(15,23,30,.5);
+            border: 1px solid #8197a4;
+            @media screen and (max-width: 500px) {
+                min-width: 30.625rem;
+                position: relative;
+                right: 210px;
+                background: rgba(15,23,30,1);
+            }
+        }
+    }
+    &__input{
+        font-size: 1.0625rem;
+        outline: none;
+        width: 100%;
+        max-width: 0rem;
+        transition: all .2s ease;
+        &.focus{
+            max-width: 20rem;
+            @media screen and (max-width: 700px) {
+                max-width: 7rem;
+            }
+        }
+    }
+    &__svg{
+        margin-right: .5rem;
+        cursor: pointer;
+    }
+    &__ul{
+        position: absolute;
+        z-index: 10;
+        display: none;
+        &.activo{ 
+            display: block;
+        }
+    }
+    &__li{
+        border-bottom: 1px solid #323e4c;
+        background: #252e39;
+        padding: .875rem 1.5rem .875rem 1.5rem;
+        width: 14.2rem; 
+        &:hover{
+            background: #415062;
+        }
+        @media screen and (max-width: 700px) {
+            width: 10rem; 
+        }  
+        @media screen and (max-width: 500px) {
+            width: 30.625rem;
+            position: relative;
+            right: 210px;
+        }  
+    }
+    &__btn{
+        cursor: pointer;    
+        text-align: left;
+    }
+}

@@ -1,0 +1,451 @@
+@import 'mixins';
+
+.pelicula{
+    width: 100%;
+    padding-top: 5rem;
+    @media screen and (max-width: 1020px) {
+        padding-top: 4.5rem;
+    }
+    @media screen and (max-width: 750px) {
+        padding-top: 3.5rem;
+    }
+    &__wrapper{
+        position: relative;
+        z-index: 3;
+        max-width: 1600px;
+        height: 100%;
+        margin: auto;
+        padding: 3em 3.125rem 0 3.125rem;
+        &.bottom{
+            padding-top: 5.5rem;
+        }
+        @media screen and (max-width: 875px) {
+            padding: 2em 1.125rem 0 1.125rem;
+        }
+    }
+    &__original{
+        margin-bottom: 1rem;
+        width: 15.625rem;
+        @media screen and (max-width: 500px) {
+            width: 13rem;
+        }
+    }
+    &__h1{
+        font-size: 2.1875rem;
+        font-weight: 700;
+        line-height: 2.25rem;
+        margin-bottom: .75rem;
+    }
+    &__image{
+        max-width: 22.5rem;
+    }
+    &__img{
+        max-height: 120px;
+        margin-bottom: 1rem;
+        width: auto;
+        @media screen and (max-width: 500px) {
+            max-width: 22.5rem;
+
+        }
+    }
+    &__top{
+        @include flex (row, nowrap, flex-start, center);
+        margin-bottom: .5rem;
+    }
+    &__top10{
+        background-color: var(--azul);
+        border-radius: 2px 0 0 2px;
+        display: inline-block;
+        height: 24px;
+        position: relative;
+        text-align: center;
+        padding: 2px 10px 0 6px;
+        margin-right: .5rem;
+    }
+    &__top-numero, &__top10{
+        font-size: 13px;
+        font-weight: 700;
+        color: white
+    }
+    &__data{
+        @include flex (row, nowrap, flex-start, center);
+        margin-bottom: .75rem;
+        font-weight: 700;
+        color: var(--azulito);
+        @media screen and (max-width: 750px) {
+            @include flex (column, nowrap, flex-start, flex-start);
+        }
+    }
+    &__datos{
+        @include flex (row, wrap, flex-start, center);
+        @media screen and (max-width: 750px) {
+            padding-top: .8rem;
+        }
+        @media screen and (max-width: 875px) {
+            font-size: .9rem;
+        }
+    }
+    &__dato{
+        margin-right: .75rem;
+        &.temporada{
+            @include flex (row, nowrap, center, center);
+            color: white;
+            background-color: #425265;
+            padding: .8rem 1.2rem;
+            font-weight: 400;
+            font-size: 1.0625rem;
+        }
+        @media screen and (max-width: 875px) {
+            margin-right: .5rem;
+        }
+        &.imdb{
+            @include flex (row, nowrap, center, center);
+        }
+        &.imdb>svg{
+            margin-right: .25rem;
+        }
+        &.xray, &.hdr, &.uhd, &.age{
+            font-size: .6875rem;
+            border: 1px solid var(--azulito);
+            border-radius: 3px;
+            line-height: .8125rem;
+            padding: .1rem .2rem;
+        }
+        &.age{
+            font-size: .8125rem;
+            line-height: 0.9rem;
+            padding: 0.1rem 0.3rem;
+        }
+        &.subtitles{
+            width: 25px;
+            height: 25px;
+        }
+    }
+    &__temporada-svg{
+        margin-left: 1.2rem;
+    }
+    &__description{
+        font-weight: 700;
+        font-size: 1.0625rem;
+        line-height: 1.5rem;
+        max-width: 820px;
+        margin-bottom: .75rem;
+        @media screen and (max-width: 875px) {
+            height: 4.8125rem;
+            overflow: hidden;
+        }
+        @media screen and (max-width: 875px) {
+            font-size: .9375rem;
+        }
+    }
+    &__p{
+        width: 95%;
+    }
+    &__buttons{
+        @include flex (row, wrap, flex-start, center);
+        margin-bottom: 2rem;
+    }
+    &__staff{
+        @include flex (column, nowrap, flex-start, flex-start);
+        margin-bottom: 3rem;
+    }
+    &__staff-data{
+        @include flex (row, nowrap, flex-start, center);
+        font-size: 1.0625rem;
+        font-weight: 700;
+        color: var(--azulito);
+        @media screen and (max-width: 500px) {
+            margin-bottom: 1rem;
+            @include flex (column, wrap, flex-start, flex-start);
+        }
+    }
+    &__title{
+        width: 150px;
+        @media screen and (max-width: 875px) {
+            font-size: .9rem;
+        }
+    }
+    &__name{
+        color: #79b8f3;
+        @media screen and (max-width: 875px) {
+            font-size: .9rem;
+        }
+    }
+    &__idioms{
+        @include flex (row, nowrap, center, center);
+        @media screen and (max-width: 875px) {
+            font-size: .9rem;
+        }
+    }
+    &__mas{
+        color: white;
+        margin-left: 5px;
+        font-weight: 700;
+    }
+    &__btn{
+        cursor: pointer;
+        padding: 20px 20px;
+        font-size: 1.0625rem;
+        border-radius: .1875rem;
+        margin-right: 1.5rem;
+        @include flex(row,nowrap,center,center);
+        background-color: var(--azul);
+        &.ver{
+            >svg{
+                margin-right: 1rem;
+            }
+            @media screen and (max-width: 500px) {
+                margin: 0 0 1rem 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+    }
+    &__reproducir{
+        color: white;
+        @media screen and (max-width: 875px) {
+            font-size: .9375rem;
+        }
+    }
+    &__list, &__chat{
+        background-color: #425265;
+        padding: .6rem;
+        border-radius: 50%;
+        margin-right: .75rem;
+    }
+    &__svg-chat{
+        padding-left: 0.15rem;
+    }
+    &__bottom{
+        width: 100%;
+        @include flex(row,nowrap,space-between,center);
+        @media screen and (max-width: 780px) {
+            @include flex(column,nowrap,flex-start,flex-start);
+        }
+    }
+    &__terminos,  &__interact,  &__li{
+        @include flex(row,nowrap,center,center);
+    }
+    &__interact{
+        @media screen and (max-width: 500px) {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+    &__terminos{
+        color: var(--azulito);
+        @media screen and (max-width: 1020px) {
+            font-size: .8rem;
+        }
+        @media screen and (max-width: 780px) {
+            margin-bottom: 1.5rem;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: .75rem;
+        }
+    }
+    &__link-terminos{
+        margin-left: .2rem;
+        color: #79b8f3;
+    }
+    &__li:not(:last-child){
+        margin-right: 1rem;
+    }
+    &__button{
+        cursor: pointer;
+        margin-left: .5rem;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        @media screen and (max-width: 1020px) {
+            font-size: .9375rem;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: .8125rem;
+        }
+    }
+    &__content{
+        @media screen and (max-width: 500px) {
+            padding-top: 9rem;
+        }
+    }
+    &__media{
+        width: 60%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        @media screen and (max-width: 500px) {
+            width: 100%;
+        }
+    }
+    &__media-content{
+        position: relative;
+        z-index: -1;
+    }
+    &__video{
+        width: 100%;
+    }
+    &__sombra, &__sombra2, &__sombra3{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background-image: linear-gradient(270deg,rgba(15,23,30,0),rgba(15,23,30,0) 85%,#0f171e);
+        pointer-events: none;
+    }
+    &__sombra2{
+        background: linear-gradient(90deg,#0f171e 10%,rgba(15,23,30,0));
+    }
+    &__sombra3{
+        background: linear-gradient(0deg,#0f171e 0,rgba(15,23,30,0) 50%);
+    }
+
+    &__opciones{
+        @include flex(row,nowrap,center,center);
+    }
+    &__serie{
+        color: white;
+    }
+    &__opcion{
+        font-size: 1.3125em;
+        font-weight: 700;
+        text-decoration: underline;
+        &:not(:last-child){
+            margin-right: 2.25rem;
+            @media screen and (max-width: 875px) {
+                margin-right: 1.5rem;
+            }
+        }
+        &:not(:first-child){
+            text-decoration: none;
+            color: var(--azulito);
+        }
+        @media screen and (max-width: 1020px) {
+            font-size: 1.1875rem;
+        }
+    }
+    &__info{
+        margin: 2.5rem 0 .5rem 0;
+        @include flex(row,nowrap,space-between,center);
+    }
+    &__numep{
+        font-size: 1.3125rem;
+        @media screen and (max-width: 1020px) {
+            font-size: 1.1875rem;
+        }
+    }
+    &__ordenar{
+        font-size: 1.0625rem;
+        @media screen and (max-width: 1020px) {
+            font-size: .9375rem;
+        }
+    }
+    &__episodio{
+        @include flex(row,nowrap,flex-start,flex-start);
+        background-color: rgba(27,37,48,.8);
+        margin-bottom: .25rem;
+    }
+    &__episodio-content{
+        width: 100%;
+        padding: 1rem 1rem .7rem 1rem;
+    }
+    &__episodio-img{
+        width: 16.75rem;
+        height: 12.5625rem;
+        @media screen and (max-width: 750px) {
+            display: none;
+        }
+    }
+    &__episodio-play{
+        background-color: var(--azul);
+        border-radius: 50%;
+        margin-right: .7rem;
+    }
+    &__episodio-num{
+        @include flex(row,nowrap,space-between,center);
+        margin-bottom: 1rem;
+        @media screen and (max-width: 750px) {
+            margin: 0;
+        }
+    }
+    &__episodio-numero{
+        @include flex(row,nowrap,flex-start,center);
+    }
+    &__episodio-info{
+        margin-bottom: .7rem;
+        @media screen and (max-width: 750px) {
+            display: none;
+        }
+    }
+    &__episodio-title{
+        font-size: 1.0625rem;
+        @media screen and (max-width: 1020px) {
+            font-size: .9375rem;
+        }
+    }
+    &__episodio-data{
+        color: var(--azulito);
+        font-size: .9375em;
+        margin-right: 1rem;
+        &.age{
+            border: 1px solid var(--azulito);
+            font-weight: 700;
+            border-radius: 3px;
+            padding: 0.1rem 0.2rem;
+        }
+        &.options{
+            color: var(--azul2);
+            font-weight: 600;
+        }
+        @media screen and (max-width: 1020px) {
+            font-size: .8125rem;
+        }
+    }
+    &__episodio-description{
+        color: var(--azulito);
+        line-height: 1.5rem;
+        max-height: 3.125rem;
+        overflow: hidden;
+        margin-bottom: .5rem;
+        & > p{
+            width: 95%;
+            font-size: 1.0625em;
+            @media screen and (max-width: 1020px) {
+                font-size: .9375rem;
+            }
+        }
+        @media screen and (max-width: 750px) {
+            display: none;
+        }
+    }
+    &__episodio-grupal{
+        font-size: 1.0625em;
+        color: var(--azul2);
+        @media screen and (max-width: 1020px) {
+            font-size: .9375rem;
+        }
+        @media screen and (max-width: 750px) {
+            display: none;
+        }
+    }
+    &__slider{
+        overflow: hidden;
+        padding-top: 1rem;
+        margin-bottom: -200px;
+        @media screen and (max-width: 500px) {
+            min-height: 0;
+        }
+    }
+    &__mute{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+        display: none;
+        pointer-events: none;
+        &.activo{
+            display: block;
+            pointer-events: auto;
+        }
+    }
+}
